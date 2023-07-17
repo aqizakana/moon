@@ -1,1 +1,111 @@
 
+<html lang="ja">
+
+
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="css/index.css" />
+  <title>月</title>
+
+  <meta name="description" content="月の動きを再現してみました。" />
+  <meta name="description" content="参考サイト:http://www2s.biglobe.ne.jp/~yoss/moon/moonmapura.html" />
+  <meta name="keyword" content="月,月の動き,月の満ち欠け" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.152.2/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+
+<body>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+
+  <div id="canvas-container">
+
+    <canvas id="myCanvas"></canvas>
+    <canvas id="myCanvas2"></canvas>
+
+
+    <div id="instructions">
+      <button id="toggleButton" onclick="toggleScripts(),toggleCanvases()">Chage texts</button>
+    </div>
+  </div>
+  <script src=" js/index.js" type="module" id="indexScript"></script>
+  <script src="js/index2.js" type="module" id="index2Script"></script>
+
+  <script>
+    function toggleCanvases() {
+      var canvas1 = document.getElementById('myCanvas');
+      var canvas2 = document.getElementById('myCanvas2');
+
+      if (canvas1 && canvas2) {
+        if (canvas1.style.display === 'none') {
+          canvas1.style.display = 'block';
+          canvas2.style.display = 'none';
+        } else {
+          canvas1.style.display = 'none';
+          canvas2.style.display = 'block';
+        }
+      }
+    }
+
+    function toggleScripts() {
+      var indexScript = document.getElementById('indexScript');
+      var index2Script = document.getElementById('index2Script');
+
+      if (indexScript && index2Script) {
+        if (indexScript.getAttribute('src') === 'js/index.js') {
+          indexScript.setAttribute('src', 'js/index2.js');
+          index2Script.setAttribute('src', 'js/index.js');
+        } else {
+          indexScript.setAttribute('src', 'js/index.js');
+          index2Script.setAttribute('src', 'js/index2.js');
+        }
+      }
+    }
+
+    var toggleButton = document.getElementById('toggleButton');
+    var timeoutId;
+
+    window.addEventListener('wheel', function () {
+      clearTimeout(timeoutId);
+      toggleButton.style.display = 'none';
+      toggleButton.style.borderColor = '#000000';
+
+      timeoutId = setTimeout(function () {
+        toggleButton.style.display = 'block';
+        toggleButton.style.borderColor = '#a7a7a7';
+      }, 2000);
+    });
+
+    toggleButton.style.display = 'block';
+  </script>
+</body>
+<style>
+  #toggleButton {
+    font-size: 15px;
+    position: relative;
+    top: 50;
+    left: 0;
+    z-index: 100;
+    color: #000000;
+    border-color: #a7a7a7;
+    border: 2px;
+    border-radius: 10px;
+    opacity: 0.5;
+    /* 透明度を半分に設定 */
+  }
+</style>
+
+</html>
