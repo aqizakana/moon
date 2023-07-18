@@ -8,11 +8,7 @@ background-image:
     radial-gradient(#000000, #000000);
 }
 
-#myCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+
 
 #text-container {
     position: absolute;
