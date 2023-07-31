@@ -1,7 +1,6 @@
 
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 
@@ -1703,7 +1702,7 @@ function initCameraPosition() {
 }
 initCameraPosition();
 
-const AmbientLight = new THREE.AmbientLight(0xffffff, 1.0);
+const AmbientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(AmbientLight);
 
 const mesh = new Spheres();
