@@ -496,8 +496,8 @@ scene.add(container15);
 
 for (let i = 0; i < 7; i++) {
     const clonedContainer = container7.clone();
-    clonedContainer.rotation.y += i * 0.01;
-    clonedContainer.rotation.x += i * 0.01;
+    clonedContainer.rotation.y += i * 0.001;
+    clonedContainer.rotation.x += i * 0.001;
     scene.add(clonedContainer);
     if (i % 2 == 0) {
         clonedContainer.position.x += i * 100;
@@ -639,7 +639,7 @@ function tick() {
     requestAnimationFrame(tick);
 
 
-   container.rotation.y += 0.005;
+    container.rotation.y += 0.005;
     container2.rotation.x += 0.003;
     container2.rotation.z += 0.001;
     container3.rotation.y -= 0.001;
